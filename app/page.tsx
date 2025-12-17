@@ -25,6 +25,18 @@ export default function Home() {
         </div>
        {/* -----------------------------Title Text Animations -----------------------------*/}
 
+      {/* -----------------------------Proportion Graphic -----------------------------*/}
+
+
+        <div className="absolute top-5 left-5 z-10 h-[700px] w-[700x]">
+          <Image src="/graphics/proportions.png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
+
+       {/* ----------------------------- Proportion Graphic -----------------------------*/}
+
 
         {/* -----------------------------Globe Animations -----------------------------*/}
         <div className="absolute bottom-15 right-15 z-10 h-[400px] w-[400px]">
