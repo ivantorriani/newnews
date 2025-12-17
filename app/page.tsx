@@ -10,6 +10,11 @@ import Image from "next/image";
 import type { COBEOptions } from "cobe";
 import { Globe } from "@/components/ui/globe";
 import { HyperText } from "@/components/ui/hyper-text"
+import {
+  AnimatedSpan,
+  Terminal,
+  TypingAnimation,
+} from "@/components/ui/terminal"
 //Component Imports ---------------------
 
 
@@ -41,11 +46,30 @@ export default function Home() {
             height={700}/>
         </div>
 
+        <div className="absolute bottom-30 left-[-25] z-0 h-[350px] w-[350x]">
+          <Image src="/graphics/proportions2.png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
+
+
        {/* ----------------------------- Proportion Graphic -----------------------------*/}
 
+       {/* ----------------------------- Information Tracking -----------------------------*/}
+        <div className="absolute bottom-15 left-25 z-1 h-[300px] w-[500px]">
+          <Terminal>
+            <TypingAnimation>breaking updates...</TypingAnimation>
+            <AnimatedSpan>✔ Chicago: </AnimatedSpan>
+            <AnimatedSpan>✔ New York: </AnimatedSpan>
+          </Terminal>
+        </div>
+        {/* ----------------------------- Information Tracking -----------------------------*/}
+
+
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
-      <div className="absolute bottom-0 left-0 z-1 h-[200px] w-[200px]">
-        <div className="absolute bottom-0 left-40 z-10 h-[200px] w-[400px]">
+      <div className="absolute top-15 right-0 z-1 h-[200px] w-[200px]">
+        <div className="absolute top-0 right-27 z-10 h-[200px] w-[400px]">
           <iframe
             src="https://open.spotify.com/embed/episode/7makk4oTQel546B0PZlDM5?utm_source=generator"
             width="100%"
@@ -61,7 +85,7 @@ export default function Home() {
 
 
         {/* -----------------------------Globe Animations -----------------------------*/}
-        <div className="absolute bottom-15 right-15 z-10 h-[400px] w-[400px]">
+        <div className="absolute bottom-15 right-15 z-10 h-[500px] w-[500px]">
           <Globe />
         </div>
        {/* -----------------------------Globe Animations -----------------------------*/}

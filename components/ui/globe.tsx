@@ -35,7 +35,7 @@ const GLOBE_CONFIG: COBEOptions = {
     { location: [41.0082, 28.9784], size: 0.06 },
   ],
   opacity: 0.00,
-  scale:1.3
+  scale:1.2
 }
 
 export function Globe({
