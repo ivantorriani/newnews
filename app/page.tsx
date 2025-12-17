@@ -1,4 +1,10 @@
+//Basic Imports ---------------------
+"use client"
+import Script from "next/script"
 import Image from "next/image";
+//Basic Imports ---------------------
+
+
 
 //Component Imports ---------------------
 import type { COBEOptions } from "cobe";
@@ -36,6 +42,22 @@ export default function Home() {
         </div>
 
        {/* ----------------------------- Proportion Graphic -----------------------------*/}
+
+      {/* ----------------------------- Podcast Functionality -----------------------------*/}
+      <div className="absolute bottom-0 left-0 z-1 h-[200px] w-[200px]">
+        <div className="absolute bottom-0 left-40 z-10 h-[200px] w-[400px]">
+          <iframe
+            src="https://open.spotify.com/embed/episode/7makk4oTQel546B0PZlDM5?utm_source=generator"
+            width="100%"
+            height="100%"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          />
+        </div>
+
+      </div>
+
+      {/* ----------------------------- Podcast Functionality -----------------------------*/}
 
 
         {/* -----------------------------Globe Animations -----------------------------*/}
