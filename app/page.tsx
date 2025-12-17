@@ -12,9 +12,9 @@ import { HyperText } from "@/components/ui/hyper-text"
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-zinc-50 font-sans bg-white">
-      <main className="relative flex min-h-screen w-full flex-col bg-white">
+    <div className="relative min-h-screen w-full bg-zinc-50 font-sans">
 
+      <main className="relative flex min-h-screen w-full flex-col">
         {/* -----------------------------Title Text Animations -----------------------------*/}
         <div className="absolute top-25 left-25 z-10 h-[400px] w-[400px]">
           <HyperText duration={2000} delay={300}>Your Daily Briefing</HyperText>
