@@ -61,8 +61,45 @@ export default function Home() {
             height={700}/>
         </div>
 
+        {/*}
+        <div className="absolute top-40 right-120 z-0 h-[1000px] w-[600px] opacity-70">
+          <Image src="/graphics/proportions5 (3).png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
+        */}
 
        {/* ----------------------------- Proportion Graphics -----------------------------*/}
+
+       {/* ----------------------------- Proportion Graphics -----------------------------*/}
+        <div className="absolute top-[-25] left-10 z-10 h-[20px] w-[500px] opacity-60">
+        <Image src="/graphics/proportions6.png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
+
+        <div className="absolute top-[-25] left-90 z-10 h-[20px] w-[500px] opacity-60">
+        <Image src="/graphics/proportions6.png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
+
+        <div className="absolute top-[-25] left-180 z-10 h-[20px] w-[500px] opacity-60">
+        <Image src="/graphics/proportions6.png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
+
+      <div className="absolute top-[-25] left-270 z-10 h-[20px] w-[500px] opacity-60">
+        <Image src="/graphics/proportions6.png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
 
        {/* ----------------------------- Information Tracking -----------------------------*/}
         <div className="absolute bottom-15 left-25 z-1 h-[300px] w-[500px]">
@@ -76,8 +113,8 @@ export default function Home() {
 
 
       {/* ----------------------------- Right Functionality -----------------------------*/}
-      <div className="absolute top-15 right-25 h-[650px] w-[600px]">
-        <ShineBorder />
+      <div className="absolute top-15 right-25 h-[750px] w-[600px]">
+        <ShineBorder borderWidth={10}/>
       </div>
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
 
