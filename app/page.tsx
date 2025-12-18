@@ -15,6 +15,8 @@ import {
   TypingAnimation,
 } from "@/components/ui/terminal"
 import { FlickeringGrid } from "@/components/ui/flickering-grid"
+import AudioPlayer from "react-h5-audio-player"
+import "react-h5-audio-player/lib/styles.css"
 //Component Imports ---------------------
 
 
@@ -113,7 +115,7 @@ export default function Home() {
 
 
       {/* ----------------------------- Right Functionality -----------------------------*/}
-      <div className="absolute top-30 right-45 h-[650px] w-[600px] opacity-30">
+      <div className="absolute top-20 right-45 h-[650px] w-[600px] opacity-30">
       <FlickeringGrid
         className="absolute inset-0 z-0 size-full"
         squareSize={4}
@@ -124,6 +126,14 @@ export default function Home() {
         height={650}
         width={700}
       />
+      </div>
+      
+      {/* ----------------------------- Podcast Functionality -----------------------------*/}
+      <div className="absolute top-33 right-25 h-[650px] w-[600px]">
+        <AudioPlayer 
+          src="/episodes/bbc/2025-12-18.mp3"
+          autoPlay={false}
+          />
       </div>
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
 
