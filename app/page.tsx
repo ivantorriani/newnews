@@ -1,6 +1,5 @@
 //Basic Imports ---------------------
 "use client"
-import Script from "next/script"
 import Image from "next/image";
 //Basic Imports ---------------------
 
@@ -15,6 +14,7 @@ import {
   Terminal,
   TypingAnimation,
 } from "@/components/ui/terminal"
+import { ShineBorder } from "@/components/ui/shine-border"
 //Component Imports ---------------------
 
 
@@ -75,8 +75,10 @@ export default function Home() {
         {/* ----------------------------- Information Tracking -----------------------------*/}
 
 
-      {/* ----------------------------- Podcast Functionality -----------------------------*/}
-
+      {/* ----------------------------- Right Functionality -----------------------------*/}
+      <div className="absolute top-15 right-25 h-[650px] w-[600px]">
+        <ShineBorder />
+      </div>
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
 
       </main>
