@@ -26,6 +26,7 @@ export default function Home() {
     <div className="relative min-h-screen w-full bg-zinc-50 font-sans">
 
       <main className="relative flex min-h-screen w-full flex-col">
+
         {/* -----------------------------Title Text Animations -----------------------------*/}
         <div className="absolute top-25 left-25 z-10 h-[400px] w-[400px]">
           <HyperText duration={2000} delay={300}>Your Daily Briefing</HyperText>
@@ -71,10 +72,6 @@ export default function Home() {
             <AnimatedSpan>✔ New York: </AnimatedSpan>
           </Terminal>
         </div>
-
-
-
-
         {/* ----------------------------- Information Tracking -----------------------------*/}
 
 
@@ -89,17 +86,8 @@ export default function Home() {
             loading="lazy"
           />
         </div>
-
       </div>
-
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
-
-
-        {/* -----------------------------Globe Animations -----------------------------*/}
-        <div className="absolute bottom-15 right-15 z-10 h-[500px] w-[500px]">
-          <Globe />
-        </div>
-       {/* -----------------------------Globe Animations -----------------------------*/}
 
       </main>
     </div>
