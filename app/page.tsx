@@ -129,11 +129,13 @@ export default function Home() {
       </div>
       
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
-      <div className="absolute top-33 right-25 h-[650px] w-[600px]">
+      <div className="absolute top-28 right-25 h-[650px] w-[600px]">
+        <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/20 p-6 shadow-2xl">
         <AudioPlayer 
           src="/episodes/bbc/2025-12-18.mp3"
           autoPlay={false}
           />
+        </div>
       </div>
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
 
