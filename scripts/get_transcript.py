@@ -12,7 +12,7 @@ import time
 
 FILETYPE = '.mp3'
 DATE = time.strftime("%Y-%m-%d")
-FOLDER="episodes/bbc"
+FOLDER="public/episodes/bbc"
 EPISODE_PATH = FOLDER+"/"+DATE+FILETYPE
 #Constants---------------------------------
 
