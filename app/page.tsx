@@ -36,7 +36,7 @@ export default function Home() {
         </div>
        {/* -----------------------------Title Text Animations -----------------------------*/}
 
-      {/* -----------------------------Proportion Graphic -----------------------------*/}
+      {/* -----------------------------Proportion Graphics -----------------------------*/}
 
 
         <div className="absolute top-5 left-5 z-10 h-[700px] w-[700x]">
@@ -46,15 +46,22 @@ export default function Home() {
             height={700}/>
         </div>
 
-        <div className="absolute bottom-30 left-[-25] z-0 h-[350px] w-[350x]">
+        <div className="absolute bottom-30 left-[-25] z-0 h-[350px] w-[350x] opacity-50">
           <Image src="/graphics/proportions2.png"
             alt="graphic1"
             width={700}
             height={700}/>
         </div>
 
+        <div className="absolute bottom-[-10] left-[150] z-10 h-[350px] w-[350x]">
+          <Image src="/graphics/proportions3.png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
 
-       {/* ----------------------------- Proportion Graphic -----------------------------*/}
+
+       {/* ----------------------------- Proportion Graphics -----------------------------*/}
 
        {/* ----------------------------- Information Tracking -----------------------------*/}
         <div className="absolute bottom-15 left-25 z-1 h-[300px] w-[500px]">
@@ -64,6 +71,10 @@ export default function Home() {
             <AnimatedSpan>✔ New York: </AnimatedSpan>
           </Terminal>
         </div>
+
+
+
+
         {/* ----------------------------- Information Tracking -----------------------------*/}
 
 
