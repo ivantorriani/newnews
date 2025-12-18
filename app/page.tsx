@@ -14,7 +14,7 @@ import {
   Terminal,
   TypingAnimation,
 } from "@/components/ui/terminal"
-import { ShineBorder } from "@/components/ui/shine-border"
+import { FlickeringGrid } from "@/components/ui/flickering-grid"
 //Component Imports ---------------------
 
 
@@ -113,8 +113,17 @@ export default function Home() {
 
 
       {/* ----------------------------- Right Functionality -----------------------------*/}
-      <div className="absolute top-15 right-25 h-[750px] w-[600px]">
-        <ShineBorder borderWidth={10}/>
+      <div className="absolute top-30 right-45 h-[650px] w-[600px] opacity-30">
+      <FlickeringGrid
+        className="absolute inset-0 z-0 size-full"
+        squareSize={4}
+        gridGap={6}
+        color="#6B7280"
+        maxOpacity={0.5}
+        flickerChance={0.1}
+        height={650}
+        width={700}
+      />
       </div>
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
 
