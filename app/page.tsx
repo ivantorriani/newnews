@@ -62,6 +62,15 @@ export default function Home() {
             height={700}/>
         </div>
 
+        <div className="absolute bottom-[90] left-[250] z-10 h-[350px] w-[350x]">
+          <Image src="/graphics/proportions7.png"
+            alt="graphic1"
+            width={700}
+            height={700}/>
+        </div>
+
+  
+
         {/*}
         <div className="absolute top-40 right-120 z-0 h-[1000px] w-[600px] opacity-70">
           <Image src="/graphics/proportions5 (3).png"
