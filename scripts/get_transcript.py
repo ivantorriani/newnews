@@ -24,6 +24,6 @@ def get_transcript():
 
     with open("public/episodes/transcripts/"+DATE+".txt", 'w') as f:
         f.write(result['text'])
+    
+    return 
 
-if __name__ == "__main__":
-    get_transcript()

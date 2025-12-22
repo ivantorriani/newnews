@@ -17,6 +17,7 @@ import {
 import { FlickeringGrid } from "@/components/ui/flickering-grid"
 import AudioPlayer from "react-h5-audio-player"
 import "react-h5-audio-player/lib/styles.css"
+import LatestEpisodePlayer from "@/components/latest-episode"
 //Component Imports ---------------------
 
 
@@ -130,13 +131,12 @@ export default function Home() {
       
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
       <div className="absolute top-28 right-25 h-[650px] w-[600px]">
-        <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/20 p-6 shadow-2xl">
-        <AudioPlayer 
-          src="/episodes/bbc/2025-12-18.mp3"
-          autoPlay={false}
-          />
-        </div>
+
+        <LatestEpisodePlayer className="rounded-2xl border border-zinc-800/60 bg-zinc-900/20 p-6 shadow-2xl" />
+        
       </div>
+
+
       {/* ----------------------------- Podcast Functionality -----------------------------*/}
 
       </main>

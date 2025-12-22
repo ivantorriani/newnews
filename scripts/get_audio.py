@@ -38,8 +38,7 @@ def get_audio():
                 file.write(response.content)
             break 
 
-if __name__ == "__main__":
-    get_audio()
+
 
 
 
