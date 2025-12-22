@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect } from "react"
 import { motion, useMotionTemplate, useMotionValue } from "motion/react"
-
 import { cn } from "@/lib/utils"
 
 interface MagicCardProps {
@@ -13,6 +12,7 @@ interface MagicCardProps {
   gradientOpacity?: number
   gradientFrom?: string
   gradientTo?: string
+  borderSize?: number
 }
 
 export function MagicCard({
@@ -23,9 +23,11 @@ export function MagicCard({
   gradientOpacity = 0.8,
   gradientFrom = "#9E7AFF",
   gradientTo = "#FE8BBB",
+  borderSize = 2,
 }: MagicCardProps) {
   const mouseX = useMotionValue(-gradientSize)
   const mouseY = useMotionValue(-gradientSize)
+
   const reset = useCallback(() => {
     mouseX.set(-gradientSize)
     mouseY.set(-gradientSize)
@@ -40,32 +42,17 @@ export function MagicCard({
     [mouseX, mouseY]
   )
 
+  const handlePointerEnter = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect()
+      mouseX.set(rect.width / 2)
+      mouseY.set(rect.height / 2)
+    },
+    [mouseX, mouseY]
+  )
+
   useEffect(() => {
     reset()
-  }, [reset])
-
-  useEffect(() => {
-    const handleGlobalPointerOut = (e: PointerEvent) => {
-      if (!e.relatedTarget) {
-        reset()
-      }
-    }
-
-    const handleVisibility = () => {
-      if (document.visibilityState !== "visible") {
-        reset()
-      }
-    }
-
-    window.addEventListener("pointerout", handleGlobalPointerOut)
-    window.addEventListener("blur", reset)
-    document.addEventListener("visibilitychange", handleVisibility)
-
-    return () => {
-      window.removeEventListener("pointerout", handleGlobalPointerOut)
-      window.removeEventListener("blur", reset)
-      document.removeEventListener("visibilitychange", handleVisibility)
-    }
   }, [reset])
 
   return (
@@ -73,30 +60,45 @@ export function MagicCard({
       className={cn("group relative rounded-[inherit]", className)}
       onPointerMove={handlePointerMove}
       onPointerLeave={reset}
-      onPointerEnter={reset}
+      onPointerEnter={handlePointerEnter}
     >
+      {/* Gradient border */}
       <motion.div
-        className="bg-border pointer-events-none absolute inset-0 rounded-[inherit] duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 rounded-[inherit]"
         style={{
           background: useMotionTemplate`
-          radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
-          ${gradientFrom}, 
-          ${gradientTo}, 
-          var(--border) 100%
-          )
+            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
+              ${gradientFrom},
+              ${gradientTo},
+              transparent 70%
+            )
           `,
         }}
       />
-      <div className="bg-background absolute inset-px rounded-[inherit]" />
-      <motion.div
-        className="pointer-events-none absolute inset-px rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: useMotionTemplate`
-            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
-          `,
-          opacity: gradientOpacity,
-        }}
+
+      {/* Solid interior (controls border thickness) */}
+      <div
+        className="absolute rounded-[inherit] bg-background"
+        style={{ inset: borderSize }}
       />
+
+      {/* Glow overlay */}
+      <motion.div
+        className="pointer-events-none absolute rounded-[inherit]"
+        style={{
+          inset: borderSize,
+          background: useMotionTemplate`
+            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
+              ${gradientColor},
+              transparent 70%
+            )
+          `,
+        }}
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: gradientOpacity }}
+        transition={{ duration: 0.25 }}
+      />
+
       <div className="relative">{children}</div>
     </div>
   )

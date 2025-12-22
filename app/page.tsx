@@ -15,6 +15,7 @@ import "react-h5-audio-player/lib/styles.css"
 import LatestEpisodePlayer from "@/components/latest-episode"
 import { MagicCard } from "@/components/ui/magic-card"
 import { TypingAnimation } from "@/components/ui/typing-animation";
+import SummarizePod from "@/components/summarize-pod";
 //Component Imports ---------------------
 
 
@@ -103,18 +104,7 @@ export default function Home() {
 
        {/* ----------------------------- Information Tracking -----------------------------*/}
         <div className="absolute bottom-15 left-25 z-1 h-[300px] w-[500px]">
-          <MagicCard
-          className="w-full max-w-md"
-          gradientSize={320}
-          gradientOpacity={0.9}
-          gradientColor="#0B0F1A"
-          gradientFrom="#22d3ee"   // cyan
-          gradientTo="#a78bfa"     // violet
-        >
-          <div className="flex items-center justify-center p-10 text-center">
-            <TypingAnimation>Hello World! 👋</TypingAnimation>
-          </div>
-        </MagicCard>
+          <SummarizePod/>
         </div>
         {/* ----------------------------- Information Tracking -----------------------------*/}
 

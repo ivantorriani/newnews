@@ -34,3 +34,7 @@ def organize_sum():
     print(response['message']['content'])
 
 
+if __name__ == "__main__":
+    organize_sum()
+
+
