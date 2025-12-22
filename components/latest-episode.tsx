@@ -19,7 +19,7 @@ export default function LatestEpisodePlayer({ className }: Props) {
 
   async function getLatestEpisode() {
     setRunning(true);
-    setStatus();
+    setStatus('');
 
     try {
       const res = await fetch("/api/get-latest", { method: "POST" });
@@ -39,21 +39,30 @@ export default function LatestEpisodePlayer({ className }: Props) {
     }
   }
 
-  return (
-    <div className={className}>
+return (
+  <div className={className}>
+    {/* Centered button */}
+    <div className="flex justify-center">
       <button
         onClick={getLatestEpisode}
         disabled={running}
-        className="rounded-xl border border-zinc-800/60 bg-zinc-900/20 px-4 py-2"
+        className="w-full max-w-sm rounded-xl bg-zinc-900 px-4 py-2 font-medium text-zinc-50 shadow disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {running ? "Fetching..." : "Get latest episode"}
+        {running ? "Searching..." : "Get the latest stories"}
       </button>
-
-      <div className="mt-4">
-        <AudioPlayer src={mp3Url} autoPlay={false} />
-      </div>
-
-      {status && <pre className="mt-3 whitespace-pre-wrap text-sm">{status}</pre>}
     </div>
-  );
+
+    {/* Audio player directly below */}
+    <div className="mt-4 w-full">
+      <AudioPlayer src={mp3Url} autoPlay={false} />
+    </div>
+
+    {status && (
+      <pre className="mt-3 whitespace-pre-wrap text-center text-sm text-zinc-200/90">
+        {status}
+      </pre>
+    )}
+  </div>
+);
+
 }
