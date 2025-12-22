@@ -16,14 +16,14 @@ DOMAIN = 'https://www.bbc.co.uk'
 URL = 'https://www.bbc.co.uk/programmes/p02nq0gn/episodes/downloads'
 FILETYPE = '.mp3'
 DATE = time.strftime("%Y-%m-%d")
-FOLDER="episodes/bbc"
+FOLDER="public/episodes/bbc"
 #Constants---------------------------------
 
 
 def get_soup(url):
     return bs(requests.get(url).text, 'html.parser')
 
-if __name__ == "__main__":
+def get_audio():
 
     for link in get_soup(URL).find_all('a'):
         file_link = link.get('href')
