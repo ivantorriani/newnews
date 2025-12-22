@@ -9,15 +9,12 @@ import Image from "next/image";
 import type { COBEOptions } from "cobe";
 import { Globe } from "@/components/ui/globe";
 import { HyperText } from "@/components/ui/hyper-text"
-import {
-  AnimatedSpan,
-  Terminal,
-  TypingAnimation,
-} from "@/components/ui/terminal"
 import { FlickeringGrid } from "@/components/ui/flickering-grid"
 import AudioPlayer from "react-h5-audio-player"
 import "react-h5-audio-player/lib/styles.css"
 import LatestEpisodePlayer from "@/components/latest-episode"
+import { MagicCard } from "@/components/ui/magic-card"
+import { TypingAnimation } from "@/components/ui/typing-animation";
 //Component Imports ---------------------
 
 
@@ -106,11 +103,18 @@ export default function Home() {
 
        {/* ----------------------------- Information Tracking -----------------------------*/}
         <div className="absolute bottom-15 left-25 z-1 h-[300px] w-[500px]">
-          <Terminal>
-            <TypingAnimation>breaking updates...</TypingAnimation>
-            <AnimatedSpan>✔ Chicago: </AnimatedSpan>
-            <AnimatedSpan>✔ New York: </AnimatedSpan>
-          </Terminal>
+          <MagicCard
+          className="w-full max-w-md"
+          gradientSize={320}
+          gradientOpacity={0.9}
+          gradientColor="#0B0F1A"
+          gradientFrom="#22d3ee"   // cyan
+          gradientTo="#a78bfa"     // violet
+        >
+          <div className="flex items-center justify-center p-10 text-center">
+            <TypingAnimation>Hello World! 👋</TypingAnimation>
+          </div>
+        </MagicCard>
         </div>
         {/* ----------------------------- Information Tracking -----------------------------*/}
 
@@ -133,7 +137,7 @@ export default function Home() {
       <div className="absolute top-28 right-25 h-[650px] w-[600px]">
 
         <LatestEpisodePlayer className="rounded-2xl border border-zinc-800/60 bg-zinc-900/20 p-6 shadow-2xl" />
-        
+
       </div>
 
 
