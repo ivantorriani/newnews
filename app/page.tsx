@@ -36,6 +36,10 @@ export default function Home() {
         <div className="absolute top-25 left-95 z-10 h-[400px] w-[400px]">
           <HyperText duration={6000} delay={300}> The way to stay informed as a true democratic citizen.</HyperText>
         </div>
+
+        <div className="absolute top-150 left-25 z-10 h-[400px] w-[1000px]">
+          <HyperText duration={6000} delay={300}> A program by I.C Torriani </HyperText>
+        </div>
        {/* -----------------------------Title Text Animations -----------------------------*/}
 
       {/* -----------------------------Proportion Graphics -----------------------------*/}
