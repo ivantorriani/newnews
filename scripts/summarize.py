@@ -16,6 +16,9 @@ def organize_sum():
     with open("public/episodes/transcripts/" + time.strftime("%Y-%m-%d") + ".txt", 'r') as f:
         transcript = f.read()
     
+    #Shorten transcript
+    transcript = transcript[:600]
+    
     transcript_summarized = summarize_pod(transcript)
 
     #Get the response
@@ -28,7 +31,7 @@ def organize_sum():
             information and summarize it within 3 sentences. Do not make the summary more than 3 sentences 
             under any circumstance.
 
-            Here is the content: I'm Ivan and I'm trying not to overwhelm the system, so here's a placeholder."""
+            Here is the content:""" + transcript_summarized 
         }
     ])
 
