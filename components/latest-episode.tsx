@@ -41,7 +41,7 @@ export default function LatestEpisodePlayer({ className }: Props) {
 
 return (
   <div className={className}>
-    {/* Centered button */}
+    
     <div className="flex justify-center">
       <button
         onClick={getLatestEpisode}
@@ -52,7 +52,6 @@ return (
       </button>
     </div>
 
-    {/* Audio player directly below */}
     <div className="mt-4 w-full">
       <AudioPlayer src={mp3Url} autoPlay={false} />
     </div>

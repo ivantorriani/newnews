@@ -1,8 +1,18 @@
 "use client";
-
+//Component Imports ---------------------
 import { useEffect, useRef, useState } from "react";
-import { MagicCard } from "@/components/ui/magic-card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { TypingAnimation } from "@/components/ui/typing-animation";
+//Component Imports ---------------------
+
 
 type Props = { className?: string };
 
@@ -15,10 +25,9 @@ type ApiResult = {
 
 export default function LatestEpisodePlayer({ className }: Props) {
   const [running, setRunning] = useState(false);
-  const [status, setStatus] = useState<string>("");
-  const [outputText, setOutputText] = useState<string>("");
+  const [status, setStatus] = useState("");
+  const [outputText, setOutputText] = useState("");
 
-  // Prevent double-run in React Strict Mode dev
   const didRun = useRef(false);
 
   async function getLatestEpisode() {
@@ -28,17 +37,25 @@ export default function LatestEpisodePlayer({ className }: Props) {
 
     try {
       const res = await fetch("/api/summarize-pods", { method: "POST" });
-      const data = (await res.json()) as ApiResult;
+
+      // More robust: if server ever returns non-JSON, you’ll see it
+      const raw = await res.text();
+      let data: ApiResult;
+      try {
+        data = JSON.parse(raw) as ApiResult;
+      } catch {
+        setStatus(`Server returned non-JSON (status=${res.status}).\n\n${raw}`);
+        return;
+      }
 
       if (!res.ok || !data.ok) {
         setStatus(`Python failed (code=${data.code}).\n${data.stderr || data.stdout}`);
         return;
       }
 
-      // This is the printed output from summarize.py
       setOutputText(String(data.stdout ?? "").trim());
-    } catch {
-      setStatus("Something happened");
+    } catch (e) {
+      setStatus(`Request failed.\n${String(e)}`);
     } finally {
       setRunning(false);
     }
@@ -50,9 +67,12 @@ export default function LatestEpisodePlayer({ className }: Props) {
     void getLatestEpisode();
   }, []);
 
+  const displayText =
+    outputText || (running ? "Running..." : status ? status : "No output yet.");
+
   return (
-    <div className={`absolute bottom-15 left-25 z-1 h-[300px] w-[500px] ${className ?? ""}`}>
-      <MagicCard
+    <div className={`absolute bottom-0 left-0 z-10 h-[300px] w-[500px] ${className ?? ""}`}>
+      {/*<MagicCard
         className="w-full max-w-md"
         gradientSize={320}
         gradientOpacity={0.9}
@@ -60,12 +80,23 @@ export default function LatestEpisodePlayer({ className }: Props) {
         gradientFrom="#22d3ee"
         gradientTo="#a78bfa"
       >
-        <div className="flex items-center justify-center p-10 text-center">
-          <TypingAnimation>
-            {outputText ? outputText : running ? "Running..." : status ? status : "No output yet."}
-          </TypingAnimation>
+        <div className="flex h-full w-full items-center justify-center p-10 text-center">
+          <pre className="text-white whitespace-pre-wrap">{displayText}</pre>
+
         </div>
-      </MagicCard>
+      </MagicCard>*/}
+        
+        <Card>
+          <CardHeader>
+            <CardTitle>12/15/25</CardTitle>
+            <CardAction></CardAction>
+          </CardHeader>
+          <CardContent>
+            <TypingAnimation>{displayText}</TypingAnimation>
+          </CardContent>
+  
+        </Card>
+      
     </div>
   );
 }
