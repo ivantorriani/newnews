@@ -1,4 +1,4 @@
-{/*}
+
 
 import { NextResponse } from "next/server";
 import { spawn } from "child_process";
@@ -36,4 +36,3 @@ export async function POST() {
   return NextResponse.json(result, { status: result.ok ? 200 : 500 });
 }
 
-*/}

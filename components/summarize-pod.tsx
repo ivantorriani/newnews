@@ -38,7 +38,6 @@ export default function LatestEpisodePlayer({ className }: Props) {
     try {
       const res = await fetch("/api/summarize-pods", { method: "POST" });
 
-      // More robust: if server ever returns non-JSON, you’ll see it
       const raw = await res.text();
       let data: ApiResult;
       try {
